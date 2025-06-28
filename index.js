@@ -61,8 +61,7 @@ app.put("/us", (req,res) => {
 
 
 
-app.post("/ds", (req,res) => {
-  console.log("Deleting Rollno:", req.body.Rollno); // For Render logs
+app.delete("/ds", (req,res) => {
   let sql = "DELETE FROM Students WHERE Rollno=?";
   let data = [req.body.Rollno];
   con.query(sql,data,(error,result) => {
@@ -72,6 +71,7 @@ app.post("/ds", (req,res) => {
       res.send(result);
   });
 });
+
 
 
 app.listen(9000, () => {console.log("ready to serve @9000");});
